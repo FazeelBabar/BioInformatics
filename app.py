@@ -1,10 +1,11 @@
 import streamlit as st
-choosen_algo=st.radio(label='Choose Algorithm',options=['Needleman','Smith_Waterman'])
-seq_1=st.text_input("Enter Sequence 1")
-seq_2=st.text_input("Enter Sequence 2")
-button=st.button("Submit",on_click=result())
-if choosen_algo=='Needleman':
-  def needleman_wunsch(seq_1, seq_2):
+
+def result(align1,align2,sc):
+  st.write("Aligned Sequence 1:", align1)
+  st.write("Aligned Sequence 2:", align2)
+  st.write('Score =',sc)
+
+def needleman_wunsch(seq_1, seq_2):
     m, n = len(seq_11), len(seq_2)
     dp = [[0] * (n + 1) for _ in range(m + 1)]
 
@@ -59,18 +60,16 @@ if choosen_algo=='Needleman':
         j -= 1
 
     return align1, align2, sc
-  
-    #seq1 = "AGTACGCA"
-    #seq2 = "TATGC"
-#     seq1 = input("Enter Sequence 1")
-#     seq2 = input("Enter Sequence 2")
-
-    align1, align2, sc = needleman_wunsch(seq_1, seq_2)
-    def result():
-      st.write("Aligned Sequence 1:", align1)
-      st.write("Aligned Sequence 2:", align2)
-      st.write('Score =',sc)
       
+  
+choosen_algo=st.radio(label='Choose Algorithm',options=['Needleman','Smith_Waterman'])
+seq_1=st.text_input("Enter Sequence 1")
+seq_2=st.text_input("Enter Sequence 2")
+button=st.button("Submit",on_click=result())
+
+if choosen_algo=='Needleman':
+  align1, align2, sc = needleman_wunsch(seq_1, seq_2)
+  result(align1,align2,sc)
 
       
     
