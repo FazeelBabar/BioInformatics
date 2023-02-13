@@ -2,7 +2,7 @@ import streamlit as st
 choosen_algo=st.radio(label='Choose Algorithm',options=['Needleman','Smith_Waterman'])
 seq_1=st.text_input("Enter Sequence 1")
 seq_2=st.text_input("Enter Sequence 2")
-button=st.button("Submit")
+button=st.button("Submit",on_click=result())
 if choosen_algo=='Needleman':
   def needleman_wunsch(seq_1, seq_2):
     m, n = len(seq_11), len(seq_2)
@@ -66,8 +66,11 @@ if choosen_algo=='Needleman':
 #     seq2 = input("Enter Sequence 2")
 
     align1, align2, sc = needleman_wunsch(seq_1, seq_2)
+    def result():
+      st.write("Aligned Sequence 1:", align1)
+      st.write("Aligned Sequence 2:", align2)
+      st.write('Score =',sc)
+      
 
-    st.write("Aligned Sequence 1:", align1)
-    st.write("Aligned Sequence 2:", align2)
-    st.write('Score =',sc)
-
+      
+    
