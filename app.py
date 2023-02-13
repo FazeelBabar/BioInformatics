@@ -41,7 +41,7 @@ def needleman_wunsch(seq_1, seq_2):
             i -= 1
             j -= 1
         elif score == left_score - 2:
-            align1 = seq1[i - 1] + align1
+            align1 = seq_1[i - 1] + align1
             align2 = '-' + align2
             i -= 1
         else:
