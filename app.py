@@ -123,6 +123,4 @@ seq_2=st.text_input("Enter Sequence 2")
 if st.button(choosen_algo) == "Needleman":
   needleman_wunsch(seq_1, seq_2)
 elif st.button(choosen_algo) == "Waterman":
-  
-      
-    
+  smith_waterman(seq_1, seq_2)
