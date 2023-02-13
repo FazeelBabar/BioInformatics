@@ -58,18 +58,19 @@ def needleman_wunsch(seq_1, seq_2):
         align1 = '-' + align1
         align2 = seq_2[j - 1] + align2
         j -= 1
-
-    return align1, align2, sc
+        
+    result(align1, align2, sc)
+    return None
       
   
 choosen_algo=st.radio(label='Choose Algorithm',options=['Needleman','Smith_Waterman'])
 seq_1=st.text_input("Enter Sequence 1")
 seq_2=st.text_input("Enter Sequence 2")
-button=st.button("Submit",on_click=result())
+button=st.button("Submit",on_click=needleman_wunsch((seq_1, seq_2)))
 
-if choosen_algo=='Needleman':
-  align1, align2, sc = needleman_wunsch(seq_1, seq_2)
-  result(align1,align2,sc)
+#if choosen_algo=='Needleman':
+ # align1, align2, sc = needleman_wunsch(seq_1, seq_2)
+ # result(align1,align2,sc)
 
       
     
