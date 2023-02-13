@@ -117,10 +117,10 @@ def smith_waterman(seq1, seq2):
   result(align1, align2, score)
   return None
 
-choosen_algo=st.radio(label='Choose Algorithm',options=['Needleman','Smith_Waterman'])
+#choosen_algo=st.radio(label='Choose Algorithm',options=['Needleman','Smith_Waterman'])
 seq_1=st.text_input("Enter Sequence 1")
 seq_2=st.text_input("Enter Sequence 2")
-if st.button(choosen_algo, key="Needleman") == "Needleman":
+if st.button("Needleman") == "Needleman":
   needleman_wunsch(seq_1, seq_2)
-elif st.button(choosen_algo, key="Waterman") == "Waterman":
+elif st.button("Waterman") == "Waterman":
   smith_waterman(seq_1, seq_2)
