@@ -6,7 +6,7 @@ def result(align1,align2,sc):
   st.write('Score =',sc)
 
 def needleman_wunsch(seq_1, seq_2):
-    m, n = len(seq_11), len(seq_2)
+    m, n = len(seq_1), len(seq_2)
     dp = [[0] * (n + 1) for _ in range(m + 1)]
 
     # Initialize the first row and first column
@@ -66,7 +66,9 @@ def needleman_wunsch(seq_1, seq_2):
 choosen_algo=st.radio(label='Choose Algorithm',options=['Needleman','Smith_Waterman'])
 seq_1=st.text_input("Enter Sequence 1")
 seq_2=st.text_input("Enter Sequence 2")
-button=st.button("Submit",on_click(needleman_wunsch((seq_1, seq_2))))
+if st.button("Submit"):
+  needleman_wunsch(seq_1, seq_2)
+  
 
 #if choosen_algo=='Needleman':
  # align1, align2, sc = needleman_wunsch(seq_1, seq_2)
